@@ -5,7 +5,6 @@ contains
 
   subroutine x()
     implicit none
-    integer :: z = 1
     write (*,*) "xd"
   end subroutine
 
@@ -42,9 +41,6 @@ program main
 
   allocate (array1(n,n))
   allocate (array2(n))
-
-  array1 = 5
-  array2 = 2
 
   call RANDOM_NUMBER(array1)
   call RANDOM_NUMBER(array2)

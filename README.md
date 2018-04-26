@@ -3,5 +3,5 @@
 ### Content
 
 - lab1 basic operations
-- lab2 ...
-- lab3 ...
+- lab2 numerical integration
+- lab3 gauss method
