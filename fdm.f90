@@ -1,4 +1,5 @@
 module fdm
+  use gauss
   implicit none
 
 contains
@@ -53,5 +54,22 @@ contains
     end do
 
   end subroutine
+
+  function run_fdm(n) result (error)
+    integer (kind = 4), intent(in) :: n
+    real (kind = 16) :: error
+    real (kind = 8), allocatable, dimension(:,:) :: array1
+    real (kind = 8), allocatable, dimension(:) :: array2
+
+    allocate (array1(n,n))
+    allocate (array2(n))
+
+    call generate_matrix(n, array1, array2, 0, 1)
+
+    call solve(n, array1, array2)
+
+    call count_error(n, array2, error)
+
+  end function
 
 end module

@@ -13,10 +13,10 @@ FDM implementation with gauss method and error measurement
 
 #### Usage
 
-- ```sh
+```sh
 $ make bulid
 ```
 
-- ```sh
-$ make run
+```sh
+$ make verbose-run
 ```

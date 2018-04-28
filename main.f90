@@ -1,36 +1,15 @@
 program main
   use fdm
-  use gauss
   implicit none
   
-  integer (kind = 4) :: n
-  real (kind = 8), allocatable, dimension(:,:) :: array1
-  real (kind = 8), allocatable, dimension(:) :: array2
-  character(len = 5) :: s
-  real(kind = 16) :: error
+  integer (kind = 4) :: i, n = 10
+  real (kind = 16), allocatable, dimension(:) :: array
 
-  call get_command_argument(1,s)
-  read (s,'(I10)') n 
+  allocate (array(n))
 
-  allocate (array1(n,n))
-  allocate (array2(n))
-
-  call generate_matrix(n, array1, array2, 0, 1)
-
-  !write (*,"("//s//"f10.5)") array1
-  !write (*,*) NEW_LINE('')
-  !write (*,"("//s//"f10.5)") array2
-  !write (*,*) NEW_LINE('')
-
-  call solve(n, array1, array2)
-
-  !write (*,"("//s//"f10.5)") array1
-  !write (*,*) NEW_LINE('')
-  !write (*,"("//s//"f10.5)") array2
-  !write (*,*) NEW_LINE('')
-
-  call count_error(n, array2, error)
-
-  write(*,*) error
+  do i = 1,n
+    array(i) = run_fdm(i*100)
+    write(*,*) array(i)
+  end do
   
 end program
