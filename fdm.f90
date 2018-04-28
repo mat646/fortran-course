@@ -1,17 +1,16 @@
-module FDM
+module fdm
   implicit none
 
 contains
 
   subroutine generate_matrix(n, array1, array2, start, end)
     implicit none
+    
     integer (kind = 4), intent(in) :: n, start, end
-    !integer (kind = kind(n)), intent(in) :: prec
-
     real (kind = 8), allocatable, dimension(:,:), intent(out)  :: array1
     real (kind = 8), allocatable, dimension(:), intent(out) :: array2
-    integer::i,j
-
+    integer :: i, j
+   
     allocate (array1(n,n))
     allocate (array2(n))
 
@@ -30,12 +29,28 @@ contains
 
     array1(1,1) = end
     array1(2,1) = 0
-    !array1(n,n) = 1
-
-    array2(1) = start
     array1(n,n) = 1
     array1(n-1,n) = 0
-    array2(n) = 1
+
+    array2(1) = start
+    array2(n) = end
+
+  end subroutine
+
+  subroutine count_error(n, array, error)
+    implicit none
+    integer (kind = 4), intent(in) :: n
+    real (kind = 8), allocatable, dimension(:), intent(in)  :: array
+    real (kind = 16), intent(out) :: error
+    integer :: i
+    real (kind = 16) :: step
+
+    error = 0
+    step = 1/real(n-1)
+
+    do i = 2,n
+      error = error + abs(array(i) - (step*(i-1)))
+    end do
 
   end subroutine
 

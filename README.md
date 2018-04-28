@@ -1,7 +1,22 @@
-## Fortran Course
+# Fortran Course
 
-### Content
+Completed assignments for Fortran Course
 
+## Content
+
+### Essentials
 - lab1 basic operations
 - lab2 numerical integration
-- lab3 gauss method
+
+### Project 1
+FDM implementation with gauss method and error measurement
+
+#### Usage
+
+- ```sh
+$ make bulid
+```
+
+- ```sh
+$ make run
+```
