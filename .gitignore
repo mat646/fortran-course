@@ -1,4 +1,6 @@
 lab1
 lab2
 lab3
-gauss.mod
+main
+*.o
+*.mod
