@@ -13,12 +13,12 @@ Completed assignments for Fortran Course
 Finite Difference Method implementation with error measurement.  
 For given problem:
 
-$-k\frac{d^2u}{dx^2}=0$
+![eq1](https://latex.codecogs.com/gif.latex?-k\frac{d^2u}{dx^2}=0)
 
 with boundary conditions:
 
-$u(0)=0$  
-$u(1)=1$
+![eq2](https://latex.codecogs.com/gif.latex?u(0)=0)
+![eq3](https://latex.codecogs.com/gif.latex?u(1)=1)
 
 program creates system of equations using FDM and solves it with gauss method.  
 Having returned solution, program computes error connected with real precision.  
