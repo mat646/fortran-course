@@ -13,6 +13,8 @@ FDM implementation with gauss method and error measurement
 
 #### Usage
 
+Change directory to concrete precision type directory
+
 ```sh
 $ make bulid
 ```
@@ -20,3 +22,7 @@ $ make bulid
 ```sh
 $ make verbose-run
 ```
+
+#### Results
+
+![plot](https://image.ibb.co/nuqtbx/plot.png)

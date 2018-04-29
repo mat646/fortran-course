@@ -8,9 +8,9 @@ contains
     implicit none
     
     integer (kind = 4), intent(in) :: n, start, end
-    real (kind = 8), allocatable, dimension(:,:), intent(out)  :: array1
-    real (kind = 8), allocatable, dimension(:), intent(out) :: array2
-    integer :: i, j
+    real (kind = 4), allocatable, dimension(:,:), intent(out)  :: array1
+    real (kind = 4), allocatable, dimension(:), intent(out) :: array2
+    integer (kind = 4) :: i, j
    
     allocate (array1(n,n))
     allocate (array2(n))
@@ -41,13 +41,13 @@ contains
   subroutine count_error(n, array, error)
     implicit none
     integer (kind = 4), intent(in) :: n
-    real (kind = 8), allocatable, dimension(:), intent(in)  :: array
+    real (kind = 4), allocatable, dimension(:), intent(in)  :: array
     real (kind = 16), intent(out) :: error
-    integer :: i
+    integer (kind = 4) :: i
     real (kind = 16) :: step
 
     error = 0
-    step = 1/real(n-1)
+    step = 1/real(n-1, 4)
 
     do i = 2,n
       error = error + abs(array(i) - (step*(i-1)))
@@ -58,8 +58,8 @@ contains
   function run_fdm(n) result (error)
     integer (kind = 4), intent(in) :: n
     real (kind = 16) :: error
-    real (kind = 8), allocatable, dimension(:,:) :: array1
-    real (kind = 8), allocatable, dimension(:) :: array2
+    real (kind = 4), allocatable, dimension(:,:) :: array1
+    real (kind = 4), allocatable, dimension(:) :: array2
 
     allocate (array1(n,n))
     allocate (array2(n))
