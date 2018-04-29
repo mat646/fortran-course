@@ -67,7 +67,7 @@ y3 = [1.88861505171473315840301836994734435E-0032,
 ]
 
 t = np.arange(1, 20.0, 0.01)
-fig = plt.figure(num=None, figsize=(8, 6), dpi=180, facecolor='w', edgecolor='k')
+fig = plt.figure()
 ax = fig.add_subplot(221)
 plt.title('Error kind comparison')
 plt.xlabel('number of divisions (n)')
@@ -76,6 +76,6 @@ ax.semilogy(t, np.exp(-t/1.0))
 ax.plot(x, y1, color='red', linewidth=3, label='kind4')
 ax.plot(x, y2, color='green', linewidth=3, label='kind8')
 ax.plot(x, y3, color='blue', linewidth=3, label='kind16')
-ax.legend(prop={'size': 12})
-plt.savefig('foo.png')
+ax.legend()
+plt.savefig('plot.png')
 plt.show()
