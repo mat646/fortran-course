@@ -7,6 +7,9 @@ program main
 
   allocate (array(n))
 
+  write(*,*) "KIND = 8"
+  write(*,*) NEW_LINE('')
+
   do i = 1,n
     array(i) = run_fdm(i*40)
     write(*,*) array(i)

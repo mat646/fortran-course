@@ -6,18 +6,45 @@ Completed assignments for Fortran Course
 
 ### Essentials
 - lab1 basic operations
-- lab2 numerical integration
+- lab2 numerical integration example
 
-### Project 1
-FDM implementation with gauss method and error measurement
+### FDM
+
+Finite Difference Method implementation with error measurement.  
+For given problem:
+
+$-k\frac{d^2u}{dx^2}=0$
+
+with boundary conditions:
+
+$u(0)=0$  
+$u(1)=1$
+
+program creates system of equations using FDM and solves it with gauss method.  
+Having returned solution, program computes error connected with real precision.  
+Concretely single (kind = 4), double (kind = 8) and fourfold (kind = 16) precision.
 
 #### Usage
 
-Change directory to concrete precision type directory
+Change directory to /FDM and:
 
 ```sh
-$ make bulid
+$ make bulid-all
 ```
+
+```sh
+$ make run-all
+```
+
+Output shows sum of errors for every iteration.  
+
+Also you can change directory to concrete precision type and follow Makefile instructions:
+
+```sh
+$ make run
+```
+
+To inspect system of equations before and after solving change directory to concrete precision and type:
 
 ```sh
 $ make verbose-run
@@ -25,4 +52,12 @@ $ make verbose-run
 
 #### Results
 
+Plots below show error values output on logarithmic scale.
+
 ![plot](https://image.ibb.co/nuqtbx/plot.png)
+
+To generate these plots by yourself:
+
+```sh
+$ python3 generate_plot.py
+```

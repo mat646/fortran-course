@@ -67,7 +67,7 @@ y3 = [1.88861505171473315840301836994734435E-0032,
 ]
 
 t = np.arange(1, 20.0, 0.01)
-fig = plt.figure(figsize=(25,12))
+fig = plt.figure(num=None, figsize=(8, 6), dpi=180, facecolor='w', edgecolor='k')
 ax = fig.add_subplot(221)
 plt.title('Error kind comparison')
 plt.xlabel('number of divisions (n)')

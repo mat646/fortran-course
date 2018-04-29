@@ -28,7 +28,7 @@ contains
       end do
     end do
 
-    array1(1,1) = end
+    array1(1,1) = 1
     array1(2,1) = 0
     array1(n,n) = 1
     array1(n-1,n) = 0

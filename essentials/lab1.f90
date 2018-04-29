@@ -18,11 +18,9 @@ function fun(a) result (val)
   val = a + 10
 end function fun
 
-
 program main
   implicit none
   real (kind = 8) :: first(100, 100) 
-
 
   integer (kind = 4) :: arr(ASIZE), fun
   integer (kind = 4) :: j, k, i, arr2(10,5)
@@ -31,13 +29,11 @@ program main
   read *, k
 
   do i=1, ASIZE
-    !read *, arr(i)
     arr(i) = i
   end do
 
   write (*,*) arr
   write (*,*) size(arr2(1,:))
-
 
   call mm(arr, ASIZE, j)
 
