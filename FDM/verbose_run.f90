@@ -1,16 +1,17 @@
 program main
   use fdm
   use gauss
+  use precision
   implicit none
   
   integer (kind = 4) :: n
-  real (kind = 8), allocatable, dimension(:,:) :: array1
-  real (kind = 8), allocatable, dimension(:) :: array2
+  real (kind = prec), allocatable, dimension(:,:) :: array1
+  real (kind = prec), allocatable, dimension(:) :: array2
   character(len = 5) :: s
   real(kind = 16) :: error
 
   call get_command_argument(1,s)
-  read (s,'(I10)') n 
+  read (s,'(I10)') n
 
   allocate (array1(n,n))
   allocate (array2(n))

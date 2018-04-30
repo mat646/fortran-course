@@ -29,20 +29,22 @@ Concretely single (kind = 4), double (kind = 8) and fourfold (kind = 16) precisi
 Change directory to /FDM and:
 
 ```sh
-$ make bulid-all
+$ make bulid
 ```
+
+For concrete kind use option:
 
 ```sh
-$ make run-all
+$ make build KIND=kind16
 ```
 
-Output shows sum of errors for every iteration.  
-
-Also you can change directory to concrete precision type and follow Makefile instructions:
+And then:
 
 ```sh
 $ make run
 ```
+
+Output shows sum of errors for every iteration.  
 
 To inspect system of equations before and after solving change directory to concrete precision and type:
 

@@ -1,4 +1,5 @@
 module gauss
+  use precision
   implicit none
 
 contains
@@ -6,10 +7,10 @@ contains
   subroutine solve(n, a, x)
     implicit none
     integer (kind = 4), intent(in) :: n
-    real (kind = 8), intent(inout) :: a(n, n)
-    real (kind = 8), intent(inout) :: x(n)
+    real (kind = prec), intent(inout) :: a(n, n)
+    real (kind = prec), intent(inout) :: x(n)
     integer (kind = 4) :: i, j
-    real (kind = 8) :: c
+    real (kind = prec) :: c
     do i = 1,n
       do j = 1,n
         if (i .NE. j) then

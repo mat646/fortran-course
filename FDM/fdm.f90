@@ -1,5 +1,6 @@
 module fdm
   use gauss
+  use precision
   implicit none
 
 contains
@@ -8,8 +9,8 @@ contains
     implicit none
     
     integer (kind = 4), intent(in) :: n, start, end
-    real (kind = 16), allocatable, dimension(:,:), intent(out)  :: array1
-    real (kind = 16), allocatable, dimension(:), intent(out) :: array2
+    real (kind = prec), allocatable, dimension(:,:), intent(out)  :: array1
+    real (kind = prec), allocatable, dimension(:), intent(out) :: array2
     integer (kind = 4) :: i, j
    
     allocate (array1(n,n))
@@ -41,13 +42,13 @@ contains
   subroutine count_error(n, array, error)
     implicit none
     integer (kind = 4), intent(in) :: n
-    real (kind = 16), allocatable, dimension(:), intent(in)  :: array
+    real (kind = prec), allocatable, dimension(:), intent(in)  :: array
     real (kind = 16), intent(out) :: error
     integer (kind = 4) :: i
     real (kind = 16) :: step
 
     error = 0
-    step = 1/real(n-1, 16)
+    step = 1/real(n-1, 8)
 
     do i = 2,n
       error = error + abs(array(i) - (step*(i-1)))
@@ -58,8 +59,8 @@ contains
   function run_fdm(n) result (error)
     integer (kind = 4), intent(in) :: n
     real (kind = 16) :: error
-    real (kind = 16), allocatable, dimension(:,:) :: array1
-    real (kind = 16), allocatable, dimension(:) :: array2
+    real (kind = prec), allocatable, dimension(:,:) :: array1
+    real (kind = prec), allocatable, dimension(:) :: array2
 
     allocate (array1(n,n))
     allocate (array2(n))

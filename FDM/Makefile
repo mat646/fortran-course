@@ -1,27 +1,20 @@
-DIR = kind8
-
-.PHONY: build
+OPT = -ffree-form -std=f2008 -fimplicit-none -Wall -pedantic
+KIND = kind8
 
 build:
-	$(MAKE) -C $(DIR) build
-
-build-all:
-	make build DIR=kind4
-	make build DIR=kind8
-	make build DIR=kind16
-
-run:
-	$(MAKE) -C $(DIR) run
-
-run-all:
-	make run DIR=kind4
-	make run DIR=kind8
-	make run DIR=kind16
+	gfortran $(OPT) -c $(KIND)/precision.f90
+	gfortran $(OPT) -c gauss.f90
+	gfortran $(OPT) -c fdm.f90 
+	gfortran $(OPT) -c verbose_run.f90
+	gfortran $(OPT) verbose_run.o fdm.o gauss.o precision.o -o verbose_run
+	gfortran $(OPT) -c main.f90
+	gfortran $(OPT) main.o fdm.o gauss.o precision.o -o main
 
 verbose-run:
-	$(MAKE) -C $(DIR) verbose-run
+	./verbose_run 10
 
-clean-all:
-	$(MAKE) -C kind4 clean
-	$(MAKE) -C kind8 clean
-	$(MAKE) -C kind16 clean
+run:
+	./main
+
+clean:
+	rm *.o *.mod main verbose_run
