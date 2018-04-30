@@ -48,7 +48,7 @@ contains
     real (kind = 16) :: step
 
     error = 0
-    step = 1/real(n-1, 8)
+    step = 1/real(n-1, prec)
 
     do i = 2,n
       error = error + abs(array(i) - (step*(i-1)))
