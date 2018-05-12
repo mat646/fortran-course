@@ -63,3 +63,7 @@ To generate these plots by yourself:
 ```sh
 $ python3 generate_plot.py
 ```
+
+### Tests
+
+Simple pFunit test for matrices. 

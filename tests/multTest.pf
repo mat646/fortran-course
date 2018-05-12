@@ -1,0 +1,12 @@
+@test
+subroutine helloTest()
+   use mult
+   use pfunit_mod
+   implicit none
+   real :: mat1(2,5)
+   real :: mat2(2,5)
+   mat1 = 1.0d0
+   mat2 = 0.0d0
+   call matrixmultiply(mat1, mat2)
+   @assertEqual(mat1,mat2)
+end subroutine helloTest
