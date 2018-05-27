@@ -1,0 +1,47 @@
+
+
+@test
+subroutine helloTest()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(2,2)
+   real (kind = 8) :: mat2(2,2)
+   real (kind = 8) :: mat3(2,2)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 0.0d0
+   call mm(mat1, mat2, mat3, i)
+   @assertEqual(mat1,mat1)
+end subroutine
+
+@test
+subroutine helloTest2()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(2,2)
+   real (kind = 8) :: mat2(2,2)
+   real (kind = 8) :: mat3(2,2)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 0.0d0
+   call mm(mat1, mat2, mat3, i)
+   @assertEqual(mat1,mat2)
+end subroutine
+
+@test
+subroutine helloTest3()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(2,2) 
+   real (kind = 8) :: mat2(2,2)
+   real (kind = 8) :: mat3(2,2)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 0.0d0
+   call mm(mat1, mat2, mat3, i)
+   @assertEqual(mat1,mat3)
+end subroutine
+
