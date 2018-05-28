@@ -1,47 +1,134 @@
-
-
 @test
-subroutine helloTest()
+subroutine oneOneTest()
    use mult
    use pfunit_mod
    implicit none
-   real (kind = 8) :: mat1(2,2)
-   real (kind = 8) :: mat2(2,2)
-   real (kind = 8) :: mat3(2,2)
+   real (kind = 8) :: mat1(1,1)
+   real (kind = 8) :: mat2(1,1)
+   real (kind = 8) :: mat3(1,1)
+   real (kind = 8) :: mat4(1,1)
    integer (kind = 4) :: i
-   mat1 = 1.0d0
-   mat2 = 0.0d0
-   call mm(mat1, mat2, mat3, i)
-   @assertEqual(mat1,mat1)
+   mat1 = 5.0d0
+   mat2 = 3.0d0
+   mat4 = 15.0d0
+   call mm(mat1, mat2, mat3, i) 
+   @assertEqual(mat3,mat4)
 end subroutine
 
 @test
-subroutine helloTest2()
+subroutine oneNTest()
    use mult
    use pfunit_mod
    implicit none
-   real (kind = 8) :: mat1(2,2)
-   real (kind = 8) :: mat2(2,2)
-   real (kind = 8) :: mat3(2,2)
+   real (kind = 8) :: mat1(5,1)
+   real (kind = 8) :: mat2(1,5)
+   real (kind = 8) :: mat3(1,1)
+   real (kind = 8) :: mat4(1,1)
    integer (kind = 4) :: i
    mat1 = 1.0d0
-   mat2 = 0.0d0
+   mat2 = 1.0d0
+   mat4 = 5.0d0
    call mm(mat1, mat2, mat3, i)
-   @assertEqual(mat1,mat2)
+   @assertEqual(mat3,mat4)
 end subroutine
 
 @test
-subroutine helloTest3()
+subroutine GreatTest()
    use mult
    use pfunit_mod
    implicit none
-   real (kind = 8) :: mat1(2,2) 
-   real (kind = 8) :: mat2(2,2)
-   real (kind = 8) :: mat3(2,2)
+   real (kind = 8) :: mat1(100,100)
+   real (kind = 8) :: mat2(100,100)
+   real (kind = 8) :: mat3(100,100)
+   real (kind = 8) :: mat4(100,100)
    integer (kind = 4) :: i
    mat1 = 1.0d0
-   mat2 = 0.0d0
+   mat2 = 1.0d0
+   mat4 = 100.0d0
    call mm(mat1, mat2, mat3, i)
-   @assertEqual(mat1,mat3)
+   @assertEqual(mat3,mat4)
 end subroutine
+
+@test
+subroutine InvalidDimsTest()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(15,10)
+   real (kind = 8) :: mat2(14,4)
+   real (kind = 8) :: mat3(15,15)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 1.0d0
+   call mm(mat1, mat2, mat3, i)
+   @assertEqual(i,1)
+end subroutine
+
+
+@test
+subroutine oneOneTest2()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(1,1)
+   real (kind = 8) :: mat2(1,1)
+   real (kind = 8) :: mat3(1,1)
+   real (kind = 8) :: mat4(1,1)
+   integer (kind = 4) :: i
+   mat1 = 5.0d0
+   mat2 = 3.0d0
+   mat4 = 15.0d0
+   call mm_version_2(mat1, mat2, mat3, i) 
+   @assertEqual(mat3,mat4)
+end subroutine
+
+@test
+subroutine oneNTest2()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(5,1)
+   real (kind = 8) :: mat2(1,5)
+   real (kind = 8) :: mat3(1,1)
+   real (kind = 8) :: mat4(1,1)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 1.0d0
+   mat4 = 5.0d0
+   call mm_version_2(mat1, mat2, mat3, i)
+   @assertEqual(mat3,mat4)
+end subroutine
+
+@test
+subroutine GreatTest2()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(100,100)
+   real (kind = 8) :: mat2(100,100)
+   real (kind = 8) :: mat3(100,100)
+   real (kind = 8) :: mat4(100,100)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 1.0d0
+   mat4 = 100.0d0
+   call mm_version_2(mat1, mat2, mat3, i)
+   @assertEqual(mat3,mat4)
+end subroutine
+
+@test
+subroutine InvalidDimsTest2()
+   use mult
+   use pfunit_mod
+   implicit none
+   real (kind = 8) :: mat1(15,10)
+   real (kind = 8) :: mat2(14,4)
+   real (kind = 8) :: mat3(15,15)
+   integer (kind = 4) :: i
+   mat1 = 1.0d0
+   mat2 = 1.0d0
+   call mm_version_2(mat1, mat2, mat3, i)
+   @assertEqual(i,1)
+end subroutine
+
 

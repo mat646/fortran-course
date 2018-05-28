@@ -66,9 +66,46 @@ $ python3 generate_plot.py
 
 ### Tests
 
-Simple pFunit test for matrices. 
+Simple hello world pFunit test. 
 
 
 ### Matrices
 
-...
+Testing matrices multiplication with pFunit. Module contains simple loop implementation and also improved version with dot product.
+
+
+#### Usage
+
+Change directory to /matrices and:
+
+```sh
+$ make bulid
+```
+
+And then:
+
+```sh
+$ make run
+```
+
+To run tests start with:
+
+```sh
+$ rm maino.o
+```
+
+Then build tests:
+
+```sh
+$ make test
+```
+
+And finally:
+
+```sh
+$ ./test
+```
+
+#### Results
+
+Time and matrix size dependence. 

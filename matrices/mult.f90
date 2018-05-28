@@ -16,14 +16,13 @@ contains
 
     if (first_dim(1) .NE. second_dim(2)) then
       status = 1
-
     else
 
     do i = 1,first_dim(2)
       do j = 1,first_dim(2)
         do k = 1,first_dim(1)
 
-          multiply(i,j) = multiply(i,j) + first(i,k)*second(k,j)
+          multiply(i,j) = multiply(i,j) + first(k, i)*second(j, k)
 
         end do
       end do
@@ -42,27 +41,26 @@ contains
     real (kind = 8), intent(in) :: second(:,:)
     real (kind = 8), intent(out) :: multiply(:,:)
     integer (kind = 4), intent(out) :: status
-    integer (kind = 4) :: first_dim(2), second_dim(2), i, j, k
+    integer (kind = 4) :: first_dim(2), second_dim(2), i, j
   
     first_dim = SHAPE(first)
     second_dim = SHAPE(second)
 
     if (first_dim(1) .NE. second_dim(2)) then
-      status = 1
-      return 
-    end if
+      status = 1 
+    else
 
     do i = 1,first_dim(2)
       do j = 1,first_dim(2)
-        do k = 1,first_dim(1)
 
-          multiply(i,j) = dot_product(first(i,:),second(:,j))
+        multiply(i,j) = dot_product(first(:,i),second(j,:))
 
-        end do
       end do
     end do
 
     status = 0
+
+    end if
 
   end subroutine
 
@@ -80,8 +78,7 @@ contains
 
     if (first_dim(1) .NE. second_dim(2)) then
       status = 1
-      return 
-    end if
+    else
 
     do i = 1,first_dim(2)
       do j = 1,first_dim(2)
@@ -94,6 +91,8 @@ contains
     end do
 
     status = 0
+
+    end if
 
   end subroutine
 

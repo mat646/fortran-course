@@ -28,6 +28,10 @@ build:
 	gfortran $(OPT) -c mult.f90 maino.f90 
 	gfortran $(OPT) maino.o mult.o -o maino
 
+build-opt:
+	gfortran $(OPT) -c -O2 mult.f90 maino.f90 
+	gfortran $(OPT) -O2 maino.o mult.o -o maino
+
 run:
 	./maino
 
