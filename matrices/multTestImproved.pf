@@ -1,5 +1,5 @@
 @test
-subroutine oneOneTest()
+subroutine oneOneTest2()
    use mult
    use pfunit_mod
    implicit none
@@ -11,12 +11,12 @@ subroutine oneOneTest()
    mat1 = 5.0d0
    mat2 = 3.0d0
    mat4 = 15.0d0
-   call mm(mat1, mat2, mat3, i) 
+   call mm_version_2(mat1, mat2, mat3, i) 
    @assertEqual(mat3,mat4)
 end subroutine
 
 @test
-subroutine oneNTest()
+subroutine oneNTest2()
    use mult
    use pfunit_mod
    implicit none
@@ -28,12 +28,12 @@ subroutine oneNTest()
    mat1 = 1.0d0
    mat2 = 1.0d0
    mat4 = 5.0d0
-   call mm(mat1, mat2, mat3, i)
+   call mm_version_2(mat1, mat2, mat3, i)
    @assertEqual(mat3,mat4)
 end subroutine
 
 @test
-subroutine GreatTest()
+subroutine GreatTest2()
    use mult
    use pfunit_mod
    implicit none
@@ -45,12 +45,12 @@ subroutine GreatTest()
    mat1 = 1.0d0
    mat2 = 1.0d0
    mat4 = 100.0d0
-   call mm(mat1, mat2, mat3, i)
+   call mm_version_2(mat1, mat2, mat3, i)
    @assertEqual(mat3,mat4)
 end subroutine
 
 @test
-subroutine InvalidDimsTest()
+subroutine InvalidDimsTest2()
    use mult
    use pfunit_mod
    implicit none
@@ -60,7 +60,7 @@ subroutine InvalidDimsTest()
    integer (kind = 4) :: i
    mat1 = 1.0d0
    mat2 = 1.0d0
-   call mm(mat1, mat2, mat3, i)
+   call mm_version_2(mat1, mat2, mat3, i)
    @assertEqual(i,1)
 end subroutine
 

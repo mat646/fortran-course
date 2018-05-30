@@ -76,7 +76,7 @@ Testing matrices multiplication with pFunit. Module contains simple loop impleme
 
 #### Usage
 
-Change directory to /matrices and:
+(FIRST TASK) Change directory to /matrices and:
 
 ```sh
 $ make bulid
@@ -88,10 +88,16 @@ And then:
 $ make run
 ```
 
+(SECOND TASK) To test improved version use:
+
+```sh
+$ make run-improved
+```
+
 To run tests start with:
 
 ```sh
-$ rm maino.o
+$ rm main.o
 ```
 
 Then build tests:
@@ -108,4 +114,12 @@ $ ./test
 
 #### Results
 
-Time and matrix size dependence. 
+(THIRD TASK) Time and matrix size dependence for all cases:  
+
+Input for plots generated with:
+
+```sh
+$ make time-measure
+```
+
+![plot]()

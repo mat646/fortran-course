@@ -2,17 +2,20 @@ program maino
   use mult
   implicit none
   
-  integer (kind = 4) :: i, n = 3, m = 5
+  integer (kind = 4) :: i, n, m
   real (kind = 8), allocatable, dimension(:,:) :: array1
   real (kind = 8), allocatable, dimension(:,:) :: array2
   real (kind = 8), allocatable, dimension(:,:) :: array3
   character(len = 5) :: s, t
 
+  call get_command_argument(1,s)
+  read (s,'(I10)') n
+  call get_command_argument(2,t)
+  read (t,'(I10)') m
+
   allocate (array1(n,m))
   allocate (array2(m,n))
   allocate (array3(m,m))
-  write (s,"(i2)") n
-  write (t,"(i2)") m
 
   call RANDOM_NUMBER(array1)
   call RANDOM_NUMBER(array2)
