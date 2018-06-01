@@ -34,19 +34,22 @@ build-opt:
 	gfortran $(OPT) -O2 main.o mult.o -o main
 
 run:
-	./main 10 10
+	./main 10 10 basic
+
+run-improv:
+	./main 10 10 impro
 
 time-measure:
-	@eval $$((time ./main 100 100 > /dev/null) &> time.out)
-	@eval $$((time ./main 100 200 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 300 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 400 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 500 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 600 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 700 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 800 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 900 > /dev/null) &>> time.out)
-	@eval $$((time ./main 100 1000 > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 100 impro > /dev/null) &> time.out)
+	@eval $$((time ./main 100 200 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 300 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 400 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 500 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 600 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 700 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 800 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 900 impro > /dev/null) &>> time.out)
+	@eval $$((time ./main 100 1000 impro > /dev/null) &>> time.out)
 
 
 clean:

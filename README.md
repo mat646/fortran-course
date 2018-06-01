@@ -91,7 +91,7 @@ $ make run
 (SECOND TASK) To test improved version use:
 
 ```sh
-$ make run-improved
+$ make run-improv
 ```
 
 To run tests start with:
@@ -122,4 +122,4 @@ Input for plots generated with:
 $ make time-measure
 ```
 
-![plot]()
+![plot](https://image.ibb.co/gnADNd/plot.png)
