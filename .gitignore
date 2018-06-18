@@ -6,3 +6,4 @@ maino
 verbose_run
 *.o
 *.mod
+*.so

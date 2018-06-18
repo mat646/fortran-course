@@ -2,13 +2,11 @@
 
 Completed assignments for Fortran Course
 
-## Content
-
-### Essentials
+## Essentials
 - lab1 basic operations
 - lab2 numerical integration example
 
-### FDM
+## FDM
 
 Finite Difference Method implementation with error measurement.  
 For given problem:
@@ -24,7 +22,7 @@ program creates system of equations using FDM and solves it with gauss method.
 Having returned solution, program computes error connected with real precision.
 Concretely single (kind = 4), double (kind = 8) and fourfold (kind = 16) precision.
 
-#### Usage
+### Usage
 
 Change directory to /FDM and:
 
@@ -52,7 +50,7 @@ To inspect system of equations before and after solving change directory to conc
 $ make verbose-run
 ```
 
-#### Results
+### Results
 
 Plots below show error values output on logarithmic scale.
 
@@ -64,17 +62,17 @@ To generate these plots by yourself:
 $ python3 generate_plot.py
 ```
 
-### Tests
+## Tests
 
 Simple hello world pFunit test. 
 
 
-### Matrices
+## Matrices
 
 Testing matrices multiplication with pFunit. Module contains simple loop implementation and also improved version with dot product.
 
 
-#### Usage
+### Usage
 
 (FIRST TASK) Change directory to /matrices and:
 
@@ -112,7 +110,7 @@ And finally:
 $ ./test
 ```
 
-#### Results
+### Results
 
 (THIRD TASK) Time and matrix size dependence for all cases:  
 
@@ -123,3 +121,34 @@ $ make time-measure
 ```
 
 ![plot](https://image.ibb.co/gnADNd/plot.png)
+
+
+## MPI 
+
+Examlpe usage of coarrays. Combining Fortran with Python (f2py). Doxygen documentation. 
+
+### Usage
+
+(TASK ONE) Python usage
+
+```sh
+$ make build  
+
+$ make run
+```
+
+Generating docs
+
+```sh
+$ make generate-docs
+```  
+
+(TASK TWO) MPI example
+
+```sh
+$ make run-mpi
+```  
+
+### Results
+
+(TASK THREE) Plot. 
