@@ -43,17 +43,18 @@
    ! REVISION HISTORY:
    ! 18 06 2018 - Initial Version
    !
+   !> @param[in] n - first dimension
+   !> @param[in] m - second dimension
    !> @param[in] first - first matrix
    !> @param[in] second - second matrix
    !> @param[out] multiply - the result of multiplication
-   !> @param[out] status - in case of error set to 1
    !--------------------------------------------------------------------------- 
   subroutine mult(n, m, first, second, multiply)
     implicit none
     integer, intent(in) :: n, m
     real, dimension(n, m), intent(in) :: first
     real, dimension(m, n), intent(in) :: second
-    real, dimension(m, m), codimension[*], intent(out) :: multiply
+    real, dimension(m, m), intent(out) :: multiply
     integer :: i, j, k, img, num, dist, ibeg, iend
 
    img = this_image()
@@ -64,7 +65,6 @@
    ibeg = 1+dist*((img-1))
    iend = dist*(img)
 
-    !f2py intent (out) :: multiply
     do i = ibeg,iend
       do j = 1,m
         do k = 1,n
@@ -72,19 +72,17 @@
         end do
       end do
     end do
+
   end subroutine mult
 
 program main
   implicit none
 
-  real (kind = 4), allocatable, dimension(:,:) :: martix1
-  real (kind = 4), allocatable, dimension(:,:) :: martix2
-  real (kind = 4), allocatable, dimension(:,:) :: result
-  integer :: img, num, n
-
-  allocate (martix1(3,3))
-  allocate (martix2(3,3))
-  allocate (result(3,3))
+  integer, parameter :: n = 8
+  real, dimension(n,n) :: martix1
+  real, dimension(n,n) :: martix2
+  real, dimension(n,n),  codimension[*] :: result
+  integer :: img, num, i, j, k
 
   call RANDOM_NUMBER(martix1)
   call RANDOM_NUMBER(martix2)
@@ -92,13 +90,22 @@ program main
   img = this_image()
   num = num_images()
 
-  call mult(3,3, martix1, martix2, result)
+  call mult(n,n, martix1, martix2, result)
 
   syncall()
 
   if (img .EQ. 1) then
+    do i=2,num_images()
+      do j = 1,n
+        do k = 1,n
+          result(j,k) = result(j,k) + result[i](j,k)
+        end do
+      end do
+    end do
     write (*,*) martix1
+    write (*,*) " "
     write (*,*) martix2
+    write (*,*) " "
     write (*,*) result
   end if
 

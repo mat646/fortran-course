@@ -140,15 +140,23 @@ $ make run
 Generating docs
 
 ```sh
-$ make generate-docs
+$ make docs
 ```  
 
 (TASK TWO) MPI example
 
 ```sh
+$ make build-mpi
+
 $ make run-mpi
 ```  
 
 ### Results
 
-(TASK THREE) Plot. 
+(TASK THREE) Time execution comparison
+
+```sh
+$ make time-compare
+```  
+
+For given (simple) example execution of MPI version is significantly faster.  

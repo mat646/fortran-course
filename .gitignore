@@ -3,6 +3,8 @@ lab2
 main
 test
 maino
+matrix_mpi
+matrix
 verbose_run
 *.o
 *.mod

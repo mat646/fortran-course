@@ -1,6 +1,6 @@
 OPT = -ffree-form -std=f2008 -fimplicit-none -Wall -pedantic
 
-generate-docs:
+docs:
 	doxygen DoxygenConfig
 
 build:
@@ -9,6 +9,12 @@ build:
 run:
 	python application.py
 
-run-mpi:
+build-mpi:
 	ifort -coarray matrix_mpi.f90 -o matrix_mpi
+
+run-mpi:
 	./matrix_mpi
+
+time-compare:
+	time python application.py
+	time ./matrix_mpi

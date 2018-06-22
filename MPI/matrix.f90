@@ -43,10 +43,11 @@
    ! REVISION HISTORY:
    ! 18 06 2018 - Initial Version
    !
+   !> @param[in] n - first dimension
+   !> @param[in] m - second dimension
    !> @param[in] first - first matrix
    !> @param[in] second - second matrix
    !> @param[out] multiply - the result of multiplication
-   !> @param[out] status - in case of error set to 1
    !--------------------------------------------------------------------------- 
   subroutine mult(n, m, first, second, multiply)
     implicit none
